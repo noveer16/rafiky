@@ -1,17 +1,29 @@
 import Link from 'next/link'
-import VideoSection from './HeroVideo'
+import Image from 'next/image'
 import Countdown from '@/components/countdown'
 import FeaturedTrips from './featuresTrips'
-import HeroVideo from './HeroVideo'
 
 export default function Page() {
   return (
     <>
-      {/* Hero Video Section */}
-      <section className="relative h-[80vh] w-screen">
-        <HeroVideo />
+      {/* Hero Image Section */}
+      <section className="relative h-[60vh] w-screen overflow-hidden md:h-[80vh]">
+        <Image
+          src="/static/images/egypt.png"
+          alt="Welcome to Rafiky"
+          fill
+          priority
+          className="object-cover"
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+          <h1 className="text-4xl font-bold text-white drop-shadow-lg md:text-6xl">
+            Welcome to Rafiky
+          </h1>
+        </div>
       </section>
-      {/* Hero Section */}
+
+      {/* About Section */}
       <section className="w-screen bg-white py-16">
         <div className="mx-auto max-w-5xl px-4 text-center">
           <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-6xl">
@@ -54,15 +66,12 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Countdown Section */}
+      {/* Countdown + FeaturedTrips Section */}
       <section className="w-screen bg-white py-16">
-        <div className="mx-auto  ">
+        <div className="mx-auto">
           <Countdown />
         </div>
-
-        {/* Featured Trips Section */}
-
-        <div className="mx-auto   w-screen bg-[#01356a] px-9 py-1">
+        <div className="mx-auto w-screen bg-[#01356a] px-9 py-1">
           <FeaturedTrips />
         </div>
       </section>
