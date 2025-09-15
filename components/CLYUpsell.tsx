@@ -28,10 +28,6 @@ const CLYUpsell = () => {
           </a>
         </p>
       </div>
-      <div className="flex space-x-3 pt-6">
-        <SocialIcon kind="x" href={siteMetadata.x} />
-        <SocialIcon kind="discord" href={siteMetadata.discord} />
-      </div>
     </div>
   )
 }
