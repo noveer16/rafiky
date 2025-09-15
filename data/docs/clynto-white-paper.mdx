@@ -13,28 +13,36 @@ topic: 'general'
 ## 1. Introduction
 
 ### 1.1 Background
+
 Traditional financial systems rely on centralized intermediaries to facilitate lending and borrowing, leading to inefficiencies, high costs, and a lack of transparency. The advent of blockchain technology and decentralized finance (DeFi) has opened new avenues for creating efficient, transparent, and accessible financial systems. Despite this progress, many DeFi platforms struggle with centralized governance, rigid interest rate models, and limited cross-chain capabilities. Clynto emerges to address these shortcomings with a robust, community-driven P2P lending and borrowing ecosystem.
 
 ### 1.2 Vision
+
 Clynto’s vision is to establish a **fair, transparent, and efficient P2P lending and borrowing ecosystem** powered by blockchain technology and community governance. By enabling users to collateralize both crypto assets and non-fungible tokens (NFTs), Clynto provides seamless access to liquidity and secure investment opportunities, fostering a decentralized financial future.
 
 ## 2. Problem Statement
 
 ### 2.1 Market Inefficiencies
+
 Traditional financial systems exhibit:
+
 - **High Transaction Costs**: Intermediaries inflate fees, reducing user returns.
 - **Lack of Transparency**: Hidden processes undermine trust.
 - **Limited Access**: Many users, especially in underserved regions, are excluded.
 - **Liquidity Constraints**: Asset holders face reduced purchasing power due to illiquid holdings.
 
 ### 2.2 Centralization Risks
+
 Centralized systems are vulnerable to:
+
 - **Single Points of Failure**: Susceptible to technical or regulatory disruptions.
 - **Operational Risks**: Dependence on intermediaries causes delays and cost increases.
 - **Reduced User Control**: Participants lack influence over system rules and operations.
 
 ### 2.3 Challenges in DeFi
+
 Existing DeFi platforms often face:
+
 - **Governance Centralization**: Decision-making concentrated among a few stakeholders.
 - **Static Interest Rates**: Inflexible models unresponsive to market dynamics.
 - **Cross-Chain Limitations**: Restricted asset use across blockchain networks.
@@ -42,6 +50,7 @@ Existing DeFi platforms often face:
 ## 3. Solution: The Clynto Protocol
 
 Clynto delivers a decentralized, community-governed platform that tackles these challenges through:
+
 - **Multi-Chain Operations**: Deployed on Solana and Ethereum (Base), with plans for further expansion.
 - **Diverse Collateral**: Supports crypto assets and NFTs for stablecoin loans.
 - **Community Governance**: CLY token holders vote on key parameters like interest rates and liquidation thresholds.
@@ -51,37 +60,46 @@ Clynto delivers a decentralized, community-governed platform that tackles these 
 ## 4. Architecture
 
 ### 4.1 Overview
+
 Clynto’s modular architecture ensures scalability and interoperability across multiple blockchains. It comprises smart contracts for loan management, collateral handling, and governance, optimized for efficiency and security.
 
 ### 4.2 Smart Contracts
+
 - **Loan Agreement Contract**: Automates loan terms (collateral value, loan amount, interest rate, repayment schedule) and execution.
 - **Collateral Management Contract**: Manages locking/releasing of collateral and dynamically adjusts Loan-to-Value (LTV) ratios.
 - **Governance Contract**: Facilitates community voting and enforces on-chain decisions.
 
 ### 4.3 Interoperability
+
 Clynto’s smart contracts, written in Solidity, are Ethereum Virtual Machine (EVM)-compatible. Cross-chain bridges enable seamless asset transfers and operations across networks like Solana and Ethereum, enhancing user flexibility.
 
 ## 5. Governance
 
 ### 5.1 Token-Based Governance
+
 Clynto employs a **token-based governance model** where CLY token holders drive decision-making. Voting power is proportional to token holdings, ensuring a decentralized and inclusive process akin to leading protocols like Compound.
 
 ### 5.2 Voting Mechanics
+
 - **Proposal Submission**: Any CLY holder can propose changes (e.g., features, economic adjustments).
 - **Quorum Requirement**: A minimum of 10% of total voting power must participate for validity.
 - **Approval Threshold**: Proposals require a 51% majority to pass.
 - **On-Chain Enforcement**: Approved decisions are automatically executed via smart contracts.
 
 ### 5.3 Proposal Types
+
 - **Feature Proposals**: Introduce new functionalities or upgrades.
 - **Economic Proposals**: Adjust interest rates, LTV tiers, or fees.
 - **Emergency Proposals**: Address urgent issues (e.g., security vulnerabilities).
 
 ### 5.4 Incentive Voting
+
 Participants earn **Nectar points** for voting and proposing, redeemable for fee discounts or premium features, mirroring Aave’s staking incentives but tailored to governance engagement.
 
 ### 5.5 Governance Parameters
+
 The community governs:
+
 - **Interest Rate Tiers**: Low (0-30% LTV), mid (31-60% LTV), high (61-90% LTV) risk levels and their APRs.
 - **Liquidation Thresholds**: Defines triggers for loan liquidation (e.g., 90% LTV).
 - **Protocol Fees**: Sets borrowing, lending, and liquidation fees.
@@ -89,15 +107,20 @@ The community governs:
 ## 6. Interest Rate Model
 
 ### 6.1 Community-Driven APR
+
 Interest rates are determined through **weekly governance votes** on LTV tiers and their maximum APRs (e.g., low: 30%, mid: 70%, high: 200%). This democratic approach contrasts with Aave and Compound’s algorithmic rates, offering users direct control.
 
 ### 6.2 Dynamic Adjustment
+
 Rates adapt based on:
-- **Utilization Rate**: Higher borrowing demand increases rates (e.g., Rate = k * Utilization, where k is governance-set).
+
+- **Utilization Rate**: Higher borrowing demand increases rates (e.g., Rate = k \* Utilization, where k is governance-set).
 - **Market Conditions**: Governance adjusts rates during volatility or liquidity shifts, ensuring responsiveness.
 
 ### 6.3 Calculation Example
+
 For a $5,000 loan with 50% LTV and 70% pool APR:
+
 - Lender X: $2,000 at 28% APR → $1.534/day.
 - Lender Y/Z: $1,500 each at 21% APR → $0.8625/day each.
 - Borrower’s effective APR: Weighted average (23.8%), lower than the pool APR.
@@ -105,13 +128,16 @@ For a $5,000 loan with 50% LTV and 70% pool APR:
 ## 7. Tokenomics and CLY Token
 
 ### 7.1 Token Utility
+
 The **CLY token** enables:
+
 - **Governance**: Voting on protocol decisions.
 - **Staking**: Reduces fees and unlocks governance rights.
 - **Collateral**: Usable in loan pools.
 - **Incentives**: Fee discounts for stakers.
 
 ### 7.2 Token Distribution
+
 - **Total Supply**: 100,000,000 CLY
 - **Allocation**:
   - Investors: 15% (2-year vesting)
@@ -121,16 +147,19 @@ The **CLY token** enables:
   - Team: 15% (4-year vesting)
 
 ### 7.3 Token Economics
+
 - **Inflation/Deflation**: Governance can adjust supply (e.g., minting for rewards, burning fees).
 - **Fee Burn**: 1% of transaction fees buys back and burns CLY, creating deflationary pressure like Compound’s model.
 
 ## 8. Risk Management
 
 ### 8.1 Collateral Valuation
+
 - **Real-Time Oracles**: Chainlink or similar feeds ensure accurate pricing.
 - **Volatility Buffers**: Governance lowers max LTV for volatile assets (e.g., NFTs).
 
 ### 8.2 Liquidation Mechanisms
+
 - **Early Warning**: Lenders issue notices if LTV nears thresholds, pausing interest.
 - **Instant Liquidation**: Triggers at 90% LTV or loan expiry.
 - **Partial Liquidation**: Only enough collateral is sold to restore safe LTV levels.
@@ -138,23 +167,27 @@ The **CLY token** enables:
 ## 9. Scalability and Cross-Chain Operations
 
 ### 9.1 Multi-Chain Deployment
+
 Clynto operates on **Solana** (high throughput) and **Ethereum (Base)** (security), with plans for **Polygon** and **Binance Smart Chain**.
 
 ### 9.2 Cross-Chain Functionality
+
 - **Bridges**: Secure asset transfers across chains.
 - **Synchronization**: Contracts maintain consistent loan and governance states.
 
 ## 10. Competitive Analysis
 
 ### 10.1 Comparison with Aave and Compound
-| Feature              | Clynto             | Aave              | Compound          |
-|----------------------|--------------------|-------------------|-------------------|
-| **Governance**       | Fully community-driven | Hybrid            | Hybrid            |
-| **Collateral**       | Crypto + NFTs     | Crypto only       | Crypto only       |
-| **Interest Rates**   | Governance-adjusted | Algorithmic       | Algorithmic       |
-| **Cross-Chain**      | Multi-chain       | Ethereum-focused  | Ethereum-focused  |
+
+| Feature            | Clynto                 | Aave             | Compound         |
+| ------------------ | ---------------------- | ---------------- | ---------------- |
+| **Governance**     | Fully community-driven | Hybrid           | Hybrid           |
+| **Collateral**     | Crypto + NFTs          | Crypto only      | Crypto only      |
+| **Interest Rates** | Governance-adjusted    | Algorithmic      | Algorithmic      |
+| **Cross-Chain**    | Multi-chain            | Ethereum-focused | Ethereum-focused |
 
 ### 10.2 Unique Value Proposition
+
 - **NFT Collateral**: Expands liquidity options.
 - **Community Control**: More democratic than Aave/Compound.
 - **Rate Flexibility**: User-driven adjustments.
@@ -162,56 +195,69 @@ Clynto operates on **Solana** (high throughput) and **Ethereum (Base)** (securit
 ## 11. Security
 
 ### 11.1 Audits
+
 Regular **third-party audits** by firms like Certik ensure contract safety.
 
 ### 11.2 Dispute Resolution
+
 A **decentralized mechanism** resolves disputes transparently.
 
 ### 11.3 Redundancy
+
 **Backup systems** ensure data and operational continuity.
 
 ## 12. Roadmap
 
 ### 12.1 Phase 1: Development
+
 - Build and audit contracts.
 - Launch testnet.
 
 ### 12.2 Phase 2: Mainnet
+
 - Deploy on Solana and Ethereum (Base).
 - Launch CLY token and governance.
 
 ### 12.3 Phase 3: Growth
+
 - Expand to additional chains.
 - Integrate with DeFi ecosystems.
 
 ## 13. Daily Interest Calculation
 
 ### 13.1 Methodology
+
 Daily interest accrues as:
+
 - **Daily Rate**: APR / 365
-- **Daily Interest**: Investment * Daily Rate
+- **Daily Interest**: Investment \* Daily Rate
 - **Total Daily Interest**: Sum across all lenders
 
 ### 13.2 Example
+
 - **Loan**: $5,000, 50% LTV, 70% pool APR.
 - **Lender X**: $2,000 at 28% APR → $1.534/day.
 - **Lender Y/Z**: $1,500 each at 21% APR → $0.8625/day each.
 - **Total**: $3.259/day → $5,003.26 on Day 1.
 
 ## 14. Conclusion
+
 Clynto redefines DeFi with community governance, diverse collateral, and multi-chain scalability, aiming to lead the space in transparency and efficiency.
 
 ## 15. Appendix
 
 ### 15.1 Glossary
+
 - **APR**: Annual Percentage Rate.
 - **LTV**: Loan-to-Value Ratio.
 - **CLY**: Native token.
 
 ### 15.2 References
+
 - [Ethereum Docs](https://ethereum.org/en/developers/docs/)
 - [Solana Docs](https://docs.solana.com/)
 
 ### 15.3 Contact
+
 - Website: [www.clynto.io](http://www.clynto.io/)
 - Email: [info@clynto.io](mailto:info@clynto.io)

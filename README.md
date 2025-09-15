@@ -1,6 +1,6 @@
 # ClyntoCenter
 
-This is a [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/) center that covers Clynto main landing page, blog articles and links to docs. 
+This is a [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/) center that covers Clynto main landing page, blog articles and links to docs.
 
 This repo is based on Next App directory with [React Server Component](https://nextjs.org/docs/getting-started/react-essentials#server-components) and uses [Contentlayer](https://www.contentlayer.dev/) to manage markdown content.
 
@@ -113,4 +113,4 @@ canonicalUrl: https://tailwind-nextjs-starter-blog.vercel.app/blog/introducing-t
 
 Merging Pull requests into the `main` branch triggers the CI/CD for auto deployments:
 
-*A fork of [https://github.com/timlrx/tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog?tab=readme-ov-file)*
+_A fork of [https://github.com/timlrx/tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog?tab=readme-ov-file)_

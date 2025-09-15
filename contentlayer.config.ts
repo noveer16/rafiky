@@ -106,7 +106,7 @@ export const Blog = defineDocumentType(() => ({
     layout: { type: 'string' },
     bibliography: { type: 'string' },
     canonicalUrl: { type: 'string' },
-    coverImage: { type: 'string' }, 
+    coverImage: { type: 'string' },
   },
   computedFields: {
     ...computedFields,
@@ -142,9 +142,9 @@ export const Documentation = defineDocumentType(() => ({
     layout: { type: 'string' },
     bibliography: { type: 'string' },
     canonicalUrl: { type: 'string' },
-    topic: { type: 'string', default: 'general'},
-    index: { type: 'number', default: 1000},
-    indentation: { type: 'number', default: 0},
+    topic: { type: 'string', default: 'general' },
+    index: { type: 'number', default: 1000 },
+    indentation: { type: 'number', default: 0 },
   },
   computedFields: {
     ...computedFields,
@@ -220,8 +220,8 @@ export default makeSource({
     const { allDocuments } = await importData()
 
     // Filter for blogs and documentations
-    const allBlogs = allDocuments.filter(doc => doc._raw.sourceFilePath.includes('blog'))
-    const allDocumentation = allDocuments.filter(doc => doc._raw.sourceFilePath.includes('docs'))
+    const allBlogs = allDocuments.filter((doc) => doc._raw.sourceFilePath.includes('blog'))
+    const allDocumentation = allDocuments.filter((doc) => doc._raw.sourceFilePath.includes('docs'))
 
     createTagCount(allBlogs)
     createSearchIndex([...allBlogs, ...allDocumentation]) // Create search index for both blogs and docs

@@ -20,19 +20,19 @@ Nectar points are a non-transferable, off-chain rewards system tied to user acti
 
 Users accumulate Nectar points by engaging in a variety of protocol activities, each assigned a specific point value based on its contribution to the ecosystem. Below is a comprehensive list of eligible activities and their associated rewards:
 
-| **Activity**                  | **Points Earned**                         | **Details**                                                                 |
-|-------------------------------|-------------------------------------------|-----------------------------------------------------------------------------|
-| **Taking out a loan**         | 30 points per $1,000 USDC loan (minimum) | Encourages borrowing activity; scales with loan size (e.g., $2,000 = 60). |
-| **Repaying a loan early**     | 30 points                                 | Incentivizes timely repayment, reducing risk for lenders.                  |
-| **Providing liquidity**       | 20 points per 1% of pool contribution    | Based on lender’s percentage of total borrower pool (e.g., 5% = 100 points). |
-| **Collateralizing CLY tokens**| 100 points per 5,000 CLY                 | Promotes use of CLY as collateral; scales with amount (e.g., 10,000 = 200). |
-| **Staking CLY tokens**        | 20 points per 1,000 CLY staked           | Rewards long-term commitment; scales with stake size.                     |
-| **Voting on governance**      | 20 points per vote                       | Boosts participation in governance decisions.                             |
-| **Proposal accepted**         | 1,000 points per accepted proposal       | High reward for impactful contributions to protocol development.          |
-| **Successful referral**       | 50 points per referral (after 1st activity) | Encourages community growth; awarded after referred user’s first action.  |
-| **15 successful referrals**   | 1,000 points (one-time bonus)            | Recognizes significant influence in expanding the user base.              |
-| **Platform event participation** | 25 points per event                    | Enhances community engagement (e.g., AMAs, webinars).                     |
-| **Community discussion**      | 10 points per valid contribution         | Rewards meaningful forum or social media contributions.                   |
+| **Activity**                     | **Points Earned**                           | **Details**                                                                  |
+| -------------------------------- | ------------------------------------------- | ---------------------------------------------------------------------------- |
+| **Taking out a loan**            | 30 points per $1,000 USDC loan (minimum)    | Encourages borrowing activity; scales with loan size (e.g., $2,000 = 60).    |
+| **Repaying a loan early**        | 30 points                                   | Incentivizes timely repayment, reducing risk for lenders.                    |
+| **Providing liquidity**          | 20 points per 1% of pool contribution       | Based on lender’s percentage of total borrower pool (e.g., 5% = 100 points). |
+| **Collateralizing CLY tokens**   | 100 points per 5,000 CLY                    | Promotes use of CLY as collateral; scales with amount (e.g., 10,000 = 200).  |
+| **Staking CLY tokens**           | 20 points per 1,000 CLY staked              | Rewards long-term commitment; scales with stake size.                        |
+| **Voting on governance**         | 20 points per vote                          | Boosts participation in governance decisions.                                |
+| **Proposal accepted**            | 1,000 points per accepted proposal          | High reward for impactful contributions to protocol development.             |
+| **Successful referral**          | 50 points per referral (after 1st activity) | Encourages community growth; awarded after referred user’s first action.     |
+| **15 successful referrals**      | 1,000 points (one-time bonus)               | Recognizes significant influence in expanding the user base.                 |
+| **Platform event participation** | 25 points per event                         | Enhances community engagement (e.g., AMAs, webinars).                        |
+| **Community discussion**         | 10 points per valid contribution            | Rewards meaningful forum or social media contributions.                      |
 
 - **Tracking**: Points are tracked off-chain by Clynto’s backend services, which monitor user interactions and update balances in real-time.
 - **Flexibility**: The system allows for periodic adjustments to point values via governance, ensuring rewards remain aligned with ecosystem priorities.
@@ -42,6 +42,7 @@ Users accumulate Nectar points by engaging in a variety of protocol activities, 
 Nectar points earned off-chain must be claimed on-chain to become usable within the protocol. This process bridges the off-chain tracking system with the blockchain’s immutability and security.
 
 ### 3.1 Process Flow
+
 1. **Initiation**: Users trigger the claim process through the Clynto platform interface (e.g., a “Claim Nectar” button).
 2. **Verification**: The backend verifies the user’s off-chain point balance against the last on-chain sync to prevent double-claiming.
 3. **Minting**: A transaction is signed by the Clynto wallet (the sole owner of the Nectar smart contract) and executed on-chain, minting points to the user’s wallet.
@@ -49,6 +50,7 @@ Nectar points earned off-chain must be claimed on-chain to become usable within 
 5. **Lock Mechanism**: A temporary lock prevents simultaneous claims, ensuring integrity, though users can continue earning points during this period.
 
 ### 3.2 Technical Details
+
 - **Smart Contract**: The Nectar Points Contract manages minting, restricted to the Clynto wallet for security.
 - **Security Measures**: JWT-based authentication ensures only authorized claims proceed, with expiration timers (e.g., 24 hours) to thwart replay attacks.
 - **Scalability**: Batch claiming is supported to minimize gas costs for frequent users.
@@ -58,16 +60,19 @@ Nectar points earned off-chain must be claimed on-chain to become usable within 
 Once claimed, Nectar points can be redeemed on-chain for benefits that enhance the user experience and reduce costs within Clynto.
 
 ### 4.1 Redemption Options
+
 - **Fee Reduction**: Every 1,000 Nectar points deducts 1% from borrowing or lending fees for a new loan contract (e.g., 5,000 points = 5% off).
 - **Premium Features**: Points unlock advanced analytics (e.g., loan health dashboards) or priority support, with specific costs set by governance.
 - **Exclusive NFTs**: The first 5,000 users to earn 100 Nectar points receive a co-founder NFT, granting lifetime 0% fees.
 
 ### 4.2 Process
+
 - **Initiation**: Users select a redemption option (e.g., fee discount) during loan contract signing or via a dedicated interface.
 - **Verification**: The smart contract checks the user’s Nectar balance and applies the benefit, deducting the corresponding points.
 - **Execution**: The updated fee or feature access is reflected immediately, with the transaction synced to the blockchain.
 
 ### 4.3 Example
+
 - **User A**: Earns 3,000 points (1,000 from staking 50,000 CLY, 2,000 from governance votes).
 - **Claim**: Claims all 3,000 points on-chain.
 - **Redemption**: Uses 3,000 points to reduce a loan’s fees by 3%, saving $30 on a $1,000 loan with a 10% base fee.
@@ -75,6 +80,7 @@ Once claimed, Nectar points can be redeemed on-chain for benefits that enhance t
 ## 5. Importance to the Ecosystem
 
 The Nectar Points System plays a vital role in Clynto’s ecosystem by:
+
 - **Driving Engagement**: Rewards encourage users to lend, borrow, stake, and govern, increasing platform activity.
 - **Enhancing Retention**: Tangible benefits like fee reductions keep users invested in Clynto over time.
 - **Supporting Governance**: High rewards for proposals (1,000 points) incentivize innovation, strengthening community control.
@@ -85,6 +91,7 @@ For **investors**, this system signals a robust mechanism for user adoption and 
 ## 6. Governance Integration
 
 The Nectar Points System is dynamic, with point values and redemption options adjustable via Clynto’s governance process. CLY token holders can vote to:
+
 - Modify earning rates (e.g., increase staking rewards from 20 to 30 points per 1,000 CLY).
 - Add new redemption benefits (e.g., exclusive access to beta features).
 - Fine-tune the system to reflect ecosystem priorities, ensuring it remains equitable and effective.
