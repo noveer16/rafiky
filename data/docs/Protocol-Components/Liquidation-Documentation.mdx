@@ -21,35 +21,43 @@ In decentralized finance (DeFi), liquidation safeguards the integrity of lending
 Clynto supports two primary liquidation types: **Early Liquidation Notice** and **Instant Liquidation**, each tailored to specific conditions and timelines.
 
 ### 2.1 Early Liquidation Notice
+
 This scenario allows lenders to initiate liquidation before a loan reaches critical thresholds, providing borrowers with a chance to respond.
 
 #### 2.1.1 Eligibility Conditions
+
 - **LTV Threshold**: The Loan-to-Value (LTV) ratio must be below the governance-defined liquidation point (e.g., 90%).
 - **Loan Duration**: The loan term must not have expired.
 - **Minimum Investment Period**: Lenders must have held their investment for a governance-set minimum duration (e.g., 10 days) before issuing a notice.
 
 #### 2.1.2 Notice Period
+
 - **Duration**: Set by governance, with a minimum of 7 days (e.g., a 30-day notice means 30 days before liquidation can occur).
 - **Interest Freeze**: Lenders stop accruing interest during the notice period, incentivizing timely borrower action.
 - **Example**: A 7-day notice means no interest is earned for those 7 days if liquidation proceeds.
 
 #### 2.1.3 Process
+
 - **Issuance**: A lender triggers the notice via the Loan Agreement Contract, notifying the borrower.
 - **Borrower Response**: The borrower can repay the loan or add collateral to lower LTV below the threshold.
 - **Execution**: If unresolved after the notice period, the lender can liquidate their portion of the collateral.
 
 ### 2.2 Instant Liquidation
+
 This scenario allows immediate action when a loan’s risk becomes critical, protecting lenders without delay.
 
 #### 2.2.1 Conditions
+
 - **Loan Duration Expiry**: The loan term, optionally set by the borrower, has passed without full repayment.
 - **LTV Threshold Reached**: The LTV equals or exceeds the governance-defined liquidation point (e.g., 90%).
 
 #### 2.2.2 Process
+
 - **Trigger**: Any lender can initiate instant liquidation upon meeting either condition.
 - **Execution**: The Collateral Management Contract swaps and transfers the necessary collateral to the lender’s wallet.
 
 ### 2.3 Partial Collateral Liquidation
+
 - **Description**: In both scenarios, only a portion of the collateral required to cover the lender’s outstanding balance (principal plus accrued interest) is liquidated.
 - **Purpose**: Preserves remaining collateral for the borrower if possible, balancing fairness and recovery.
 - **Example**: A $5,000 loan with $10,000 collateral at 90% LTV might liquidate $4,500 worth to cover a lender’s $4,000 balance plus fees, leaving $5,500.
@@ -57,6 +65,7 @@ This scenario allows immediate action when a loan’s risk becomes critical, pro
 ## 3. Liquidation Process Details
 
 ### 3.1 Early Liquidation Steps
+
 1. **Notice Issued**: Lender submits a liquidation notice if LTV is below 90% and minimum duration is met.
 2. **Notification**: Borrower receives an alert (e.g., “7-day notice: repay or add collateral”).
 3. **Waiting Period**: Interest accrual pauses for the lender; borrower has 7 days to act.
@@ -64,17 +73,20 @@ This scenario allows immediate action when a loan’s risk becomes critical, pro
 5. **Swap and Transfer**: Collateral is sold, and proceeds cover the lender’s balance.
 
 ### 3.2 Instant Liquidation Steps
+
 1. **Trigger Detection**: LTV hits 90% or term expires, flagged by the Loan Health Monitoring System.
 2. **Initiation**: Any lender calls the liquidation function in the smart contract.
 3. **Swap and Transfer**: Collateral is immediately liquidated to repay the lender’s share.
 
 ### 3.3 Fees
+
 - **Early Liquidation**: 1% of the lender’s total owed amount, deducted from proceeds.
 - **Instant Liquidation**: 1% of the outstanding balance, paid by the borrower from collateral.
 
 ## 4. Governance Role
 
 Liquidation parameters are set by CLY token holders through governance:
+
 - **Liquidation Point**: Default at 90% LTV, adjustable to balance risk (e.g., 95% for more borrower flexibility).
 - **Minimum Duration**: Defines the waiting period before early liquidation (e.g., 10 days).
 - **Notice Period**: Sets the early liquidation timeline (e.g., 7-30 days), ensuring fairness.
@@ -84,11 +96,13 @@ This community control ensures liquidation rules reflect user consensus, adaptin
 ## 5. Importance for Users
 
 ### 5.1 For Borrowers
+
 - **Flexibility**: Early notice periods provide time to adjust (e.g., repay or add collateral), reducing liquidation risk.
 - **Fairness**: Partial liquidation preserves some collateral, softening the impact of defaults.
 - **Transparency**: Clear conditions and alerts enable proactive management.
 
 ### 5.2 For Lenders
+
 - **Protection**: Instant liquidation at 90% LTV or term expiry safeguards funds.
 - **Control**: Early notice option allows preemptive action before critical thresholds.
 - **Predictability**: Defined rules and fees ensure consistent returns.
@@ -97,17 +111,18 @@ This community control ensures liquidation rules reflect user consensus, adaptin
 
 - **Early Liquidation**:
   - Loan: $5,000, Collateral: $10,000, LTV: 50%.
-  - Collateral drops to $6,000, LTV: (5000 / 6000) * 100 = 83.33% (Yellow).
+  - Collateral drops to $6,000, LTV: (5000 / 6000) \* 100 = 83.33% (Yellow).
   - Lender issues a 7-day notice; interest pauses. Borrower adds $2,000 collateral, LTV drops to 62.5%, notice cancels.
 
 - **Instant Liquidation**:
   - Loan: $5,000, Collateral: $10,000, LTV: 50%.
-  - Collateral falls to $5,500, LTV: (5000 / 5500) * 100 ≈ 90.91% (Red).
+  - Collateral falls to $5,500, LTV: (5000 / 5500) \* 100 ≈ 90.91% (Red).
   - Lender triggers instant liquidation; $4,545 of collateral is sold to cover $4,500 (principal + interest).
 
 ## 7. Ecosystem Impact
 
 Liquidation mechanisms ensure:
+
 - **Stability**: Prevents systemic risk by addressing undercollateralized loans promptly.
 - **Trust**: Transparent processes build confidence for lenders and borrowers.
 - **Balance**: Governance-tuned rules maintain fairness, supporting a sustainable lending environment.

@@ -15,6 +15,7 @@ The Clynto Protocol is built on a robust and modular technical foundation design
 ## 1. Architecture Overview
 
 Clynto’s architecture is **modular**, meaning it’s composed of independent yet interconnected components that work together seamlessly. This design allows for:
+
 - **Scalability**: Easy addition of new features or blockchain networks.
 - **Maintainability**: Simplified updates and bug fixes without disrupting the entire system.
 - **Interoperability**: Smooth integration with diverse blockchain ecosystems.
@@ -26,6 +27,7 @@ The core components include smart contracts for managing loans, collateral, and 
 Clynto’s functionality is driven by a suite of smart contracts, each serving a specific purpose within the lending and borrowing ecosystem. These contracts are written in **Solidity** for Ethereum compatibility and adapted for Solana’s Rust-based environment where applicable, ensuring flexibility across networks.
 
 ### 2.1 Loan Agreement Contract
+
 - **Purpose**: Automates the creation, execution, and management of loan agreements between borrowers and lenders.
 - **Key Functions**:
   - **Terms Definition**: Stores loan parameters such as collateral value, loan amount, interest rate (Annual Percentage Rate, APR), and repayment schedule.
@@ -34,14 +36,16 @@ Clynto’s functionality is driven by a suite of smart contracts, each serving a
 - **Technical Details**: Uses event logs to track loan states (e.g., `LoanCreated`, `LoanFunded`, `LoanRepaid`) and employs time-based triggers for repayment deadlines.
 
 ### 2.2 Collateral Management Contract
+
 - **Purpose**: Manages the locking, monitoring, and release of collateral assets, ensuring their value aligns with loan requirements.
 - **Key Functions**:
   - **Locking/Releasing**: Secures collateral (crypto or NFTs) upon loan initiation and releases it upon repayment or liquidation.
-  - **LTV Adjustment**: Dynamically calculates the Loan-to-Value (LTV) ratio as (Total Loan Amount / Collateral Value) * 100 and adjusts based on real-time market data from oracles (e.g., Chainlink).
+  - **LTV Adjustment**: Dynamically calculates the Loan-to-Value (LTV) ratio as (Total Loan Amount / Collateral Value) \* 100 and adjusts based on real-time market data from oracles (e.g., Chainlink).
   - **Value Maintenance**: Monitors collateral volatility and triggers warnings or liquidations if LTV exceeds governance-defined thresholds (e.g., 90%).
 - **Technical Details**: Integrates with decentralized oracles for price feeds and uses a reentrancy guard to prevent exploits during collateral operations.
 
 ### 2.3 Governance Contract
+
 - **Purpose**: Facilitates community-driven decision-making by enabling CLY token holders to vote on protocol parameters.
 - **Key Functions**:
   - **Voting**: Manages proposal submission, voting periods (e.g., 7 days), and quorum requirements (e.g., 10% participation).
@@ -54,6 +58,7 @@ Clynto’s functionality is driven by a suite of smart contracts, each serving a
 Clynto’s ability to operate across multiple blockchain networks is a cornerstone of its design, enhancing accessibility and user flexibility.
 
 ### 3.1 Multi-Chain Support
+
 - **Networks**: Currently deployed on Solana (high throughput, low fees) and Ethereum (Base) (security, EVM compatibility), with plans to expand to Polygon and Binance Smart Chain.
 - **Benefits**:
   - **Speed**: Solana’s fast transaction finality supports real-time lending operations.
@@ -61,11 +66,13 @@ Clynto’s ability to operate across multiple blockchain networks is a cornersto
   - **Reach**: Multi-chain deployment broadens the user base and asset types.
 
 ### 3.2 Cross-Chain Bridges
+
 - **Purpose**: Enables seamless asset transfers between supported networks (e.g., moving an NFT from Ethereum to Solana for collateralization).
 - **Implementation**: Utilizes secure, audited bridge protocols (e.g., Wormhole) to lock assets on one chain and mint wrapped equivalents on another.
 - **Security**: Employs multi-signature verification and time-locks to mitigate bridge-related risks.
 
 ### 3.3 Technical Considerations
+
 - **Contract Synchronization**: Ensures consistent loan and governance states across chains using cross-chain messaging protocols.
 - **Asset Standards**: Supports ERC-20 (crypto) and ERC-721 (NFTs) on Ethereum-compatible chains, with equivalent standards (e.g., SPL tokens) on Solana.
 
@@ -74,6 +81,7 @@ Clynto’s ability to operate across multiple blockchain networks is a cornersto
 Clynto introduces an innovative **off-chain wallet authentication process** to streamline lender offer submissions, enhancing efficiency and reducing on-chain costs during the pre-loan phase.
 
 ### 4.1 Process Flow
+
 1. **Wallet Connection**:
    - **Description**: Lenders connect their wallets (e.g., MetaMask, Phantom) to the Clynto platform.
    - **Purpose**: Verifies the lender’s on-chain identity and prepares for offer submission.
@@ -91,6 +99,7 @@ Clynto introduces an innovative **off-chain wallet authentication process** to s
    - **Purpose**: Transitions from off-chain efficiency to on-chain immutability for the active loan.
 
 ### 4.2 Technical Details
+
 - **JWT Structure**: Signed with a private key held by Clynto’s backend, ensuring tamper-proof authentication.
 - **Security**: Tokens expire after a short duration (e.g., 24 hours) and are refreshed as needed to prevent replay attacks.
 - **Limitations**: Applies only to offer submission; all loan execution and management occur on-chain for transparency.
@@ -98,6 +107,7 @@ Clynto introduces an innovative **off-chain wallet authentication process** to s
 ## 5. Design Principles
 
 Clynto’s components are guided by the following principles:
+
 - **Robustness**: Built to withstand high transaction volumes and potential exploits.
 - **User-Friendliness**: Simplifies complex operations (e.g., off-chain authentication) for a seamless experience.
 - **Flexibility**: Modular design supports future enhancements and chain integrations.
@@ -105,7 +115,8 @@ Clynto’s components are guided by the following principles:
 ## 6. Example Workflow
 
 To illustrate how these components interact:
-1. A borrower submits an NFT valued at $10,000 as collateral and requests a $5,000 loan, resulting in an LTV of (5000 / 10000) * 100 = 50%.
+
+1. A borrower submits an NFT valued at $10,000 as collateral and requests a $5,000 loan, resulting in an LTV of (5000 / 10000) \* 100 = 50%.
 2. The Collateral Management Contract locks the NFT and verifies its value via oracles.
 3. Lenders submit offers off-chain using JWT authentication; the borrower whitelists three offers totaling $5,000.
 4. The Loan Agreement Contract deploys the loan on-chain, disbursing funds to the borrower.
@@ -116,12 +127,14 @@ To illustrate how these components interact:
 Welcome to Rafiky—your AI-powered travel crew for Egypt! This guide shows you how to discover, book, and experience authentic adventures using Rafiky’s dual marketplace, AI trip planning, and AR features.
 
 ## How It Works
+
 1. **Search & Discover:** Browse verified services or use interactive maps to find your vibe.
 2. **Book Instantly:** Reserve tours and experiences with secure payments.
 3. **Create Trip Requests:** Post your dream trip and let local experts bid to craft your itinerary.
 4. **Get Support:** 24/7 AI chatbots and support team are always here for you.
 
 ## Features
+
 - Personalized AI itineraries
 - Hidden gems and local connections
 - AR-powered immersive experiences
@@ -129,14 +142,17 @@ Welcome to Rafiky—your AI-powered travel crew for Egypt! This guide shows you 
 - Curated choices via maps and lists
 
 ## Safety & Trust
+
 - Provider vetting and background checks
 - Secure payment gateway
 - Customer protection programs
 
 ## Community
+
 - Share your Rafiky adventures on socials @rafikyapp
 - Join our Discord for support and updates
 
 ## Legal & Compliance
+
 - Terms & Conditions
 - Privacy Policy

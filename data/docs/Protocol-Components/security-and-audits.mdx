@@ -7,6 +7,7 @@ index: 11
 indentation: 1
 topic: 'components'
 ---
+
 # Security and Audits
 
 Security is a foundational pillar of the Clynto Protocol, ensuring the safety of user funds, the integrity of smart contracts, and the reliability of its decentralized lending and borrowing ecosystem. In a space where trust is paramount, Clynto employs rigorous measures to protect its users and maintain operational resilience. This section outlines the platform’s approach to smart contract audits, dispute resolution, and backup/recovery procedures, providing transparency for investors assessing risk, collaborators integrating with Clynto, and community members relying on its stability.
@@ -20,19 +21,23 @@ Decentralized finance (DeFi) platforms like Clynto operate in a high-stakes envi
 Smart contracts are the backbone of Clynto’s operations, handling loan agreements, collateral management, and governance. Regular audits are essential to ensure their functionality and security.
 
 ### 2.1 Audit Frequency
+
 - **Schedule**: Audits are conducted quarterly for existing contracts and prior to deployment for new or updated contracts.
 - **Purpose**: Identifies and mitigates vulnerabilities, ensuring ongoing safety as the protocol evolves.
 
 ### 2.2 Third-Party Auditors
+
 - **Partners**: Clynto engages reputable, independent firms such as Certik, Trail of Bits, or OpenZeppelin, known for their expertise in blockchain security.
 - **Process**: Auditors perform comprehensive code reviews, penetration testing, and formal verification to detect issues like reentrancy, overflow errors, or logic flaws.
 - **Transparency**: Audit reports are published publicly, detailing findings and remediation steps.
 
 ### 2.3 Internal Reviews
+
 - **Team Oversight**: Clynto’s development team conducts initial reviews using static analysis tools (e.g., Slither) and manual inspections before external audits.
 - **Iterative Fixes**: Identified issues are addressed promptly, with re-audits to confirm resolution.
 
 ### 2.4 Example
+
 - **Scenario**: A pre-launch audit of the Loan Agreement Contract identifies a potential reentrancy vulnerability.
 - **Action**: The team implements a reentrancy guard, retests internally, and submits for a follow-up audit, ensuring deployment safety.
 
@@ -41,18 +46,21 @@ Smart contracts are the backbone of Clynto’s operations, handling loan agreeme
 Disputes may arise from governance decisions (e.g., contested proposals) or loan agreements (e.g., repayment disagreements). Clynto employs a decentralized mechanism to resolve these fairly and transparently.
 
 ### 3.1 Mechanism Overview
+
 - **Decentralized Panel**: A pool of CLY token holders, randomly selected and vetted for staking history, forms a dispute resolution panel.
-- **Process**: 
+- **Process**:
   - **Submission**: Any user can file a dispute with evidence (e.g., transaction hashes).
   - **Review**: The panel votes within a set period (e.g., 7 days) using a majority rule (51% approval).
   - **Execution**: Outcomes (e.g., refund, proposal reversal) are enforced via smart contracts.
 - **Incentives**: Panel members earn Nectar points (e.g., 50 per resolved dispute) for participation.
 
 ### 3.2 Transparency
+
 - **Public Records**: All disputes, votes, and resolutions are logged on-chain, accessible via the Clynto interface.
 - **Appeal Process**: Users can appeal once with additional evidence, reviewed by a new panel.
 
 ### 3.3 Example
+
 - **Dispute**: A borrower claims a repayment was not credited due to a glitch.
 - **Resolution**: The panel verifies the transaction, votes 4-1 to credit the repayment, and the smart contract adjusts the loan balance.
 
@@ -61,18 +69,21 @@ Disputes may arise from governance decisions (e.g., contested proposals) or loan
 To ensure operational continuity and data integrity, Clynto implements robust backup and recovery procedures for its governance and smart contract infrastructure.
 
 ### 4.1 Backup Procedures
+
 - **Data Scope**: Includes governance records (proposals, votes) and smart contract states (loan balances, collateral locks).
 - **Frequency**: Backups occur daily, with snapshots stored off-chain in decentralized storage (e.g., IPFS, Arweave).
 - **Redundancy**: Multiple nodes across different geographic regions maintain copies, ensuring no single point of failure.
 
 ### 4.2 Recovery Procedures
+
 - **Trigger**: Activated in case of data corruption, network failure, or malicious attacks (e.g., 51% attack on a supported chain).
-- **Process**: 
+- **Process**:
   - **Validation**: Backups are cross-checked against on-chain data for consistency.
   - **Restoration**: Governance Contract redeploys with verified data, restoring ecosystem functionality.
 - **Downtime Mitigation**: Multi-chain deployment (Solana, Ethereum Base) allows failover to unaffected networks.
 
 ### 4.3 Example
+
 - **Scenario**: A Solana network outage corrupts governance data.
 - **Action**: Clynto restores the latest IPFS snapshot, validated by Ethereum Base nodes, resuming operations within hours.
 
@@ -85,15 +96,18 @@ To ensure operational continuity and data integrity, Clynto implements robust ba
 ## 6. Importance for Stakeholders
 
 ### 6.1 For Investors
+
 - **Risk Reduction**: Audits and backups minimize financial exposure, enhancing Clynto’s investment appeal.
 - **Trust**: Transparent dispute resolution and security protocols signal a reliable platform.
 - **Longevity**: Robust measures ensure Clynto’s operational sustainability.
 
 ### 6.2 For Collaborators
+
 - **Integration Safety**: Audited contracts reduce risks for partners building on Clynto (e.g., DeFi integrations).
 - **Reliability**: Redundancy supports uninterrupted service, critical for third-party dependencies.
 
 ### 6.3 For Community Members
+
 - **Asset Protection**: Ensures funds and collateral are safe from exploits or failures.
 - **Fairness**: Decentralized dispute resolution protects user rights in conflicts.
 - **Confidence**: Transparent security processes encourage active participation.
@@ -101,6 +115,7 @@ To ensure operational continuity and data integrity, Clynto implements robust ba
 ## 7. Ecosystem Impact
 
 Clynto’s security and audit framework:
+
 - **Prevents Losses**: Mitigates smart contract vulnerabilities and data breaches.
 - **Builds Credibility**: Public audits and transparent processes enhance trust across the DeFi community.
 - **Supports Growth**: A secure platform attracts users and capital, driving ecosystem expansion.
